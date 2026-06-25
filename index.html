@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Happy Birthday ✨</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&family=Outfit:wght@400;500;600&family=Pacifico&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <div id="candle-screen" class="screen active">
+    <div class="candle-bg"></div>
+    <div class="candle-stars" aria-hidden="true"></div>
+    <div class="shooting-stars" id="shooting-stars" aria-hidden="true"></div>
+
+    <div class="candle-content">
+      <h1 class="candle-title">Make a wish 🎂</h1>
+      <p class="candle-hint">Blow the candle to open your surprise</p>
+
+      <div class="cake-wrapper" id="cake-wrapper">
+        <div class="cake">
+          <div class="cake-top"></div>
+          <div class="cake-middle"></div>
+          <div class="cake-bottom"></div>
+          <div class="candle-stick">
+            <div class="flame" id="flame"><div class="flame-inner"></div></div>
+            <div class="wick" id="wick"></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="candle-actions">
+        <button class="blow-btn" id="blow-btn">🌬️ Blow it</button>
+        <button class="mic-btn" id="mic-btn">
+          <span id="mic-label">🎤 Use mic</span>
+        </button>
+      </div>
+
+      <div class="mic-meter" id="mic-meter" hidden>
+        <div class="mic-meter-bar" id="mic-meter-bar"></div>
+      </div>
+    </div>
+  </div>
+
+  <div id="main-screen" class="screen">
+    <canvas id="fireworks" aria-hidden="true"></canvas>
+    <div class="bg-image" id="bg-image"></div>
+    <div class="bg-image bg-image-second" id="bg-image-second"></div>
+    <div class="bg-overlay"></div>
+    <div id="cursor-trail" aria-hidden="true"></div>
+
+    <div class="hb-bg-text" aria-hidden="true">
+      <span>Happy Birthday</span><span>Happy Birthday</span><span>Happy Birthday</span>
+      <span>Happy Birthday</span><span>Happy Birthday</span><span>Happy Birthday</span>
+    </div>
+
+    <div class="balloons-layer" id="balloons-layer" aria-hidden="true"></div>
+    <div class="floating-hearts" aria-hidden="true"></div>
+    <div class="sparkles" aria-hidden="true"></div>
+
+    <div class="ribbon-banner"><span>🎉 HAPPY BIRTHDAY PATLU🎉</span></div>
+
+    <div class="main-content">
+      <div class="birthday-card reveal reveal-1" id="birthday-card">
+        <p class="card-eyebrow">June 24</p>
+        <h1 class="card-title">Happy Birthday</h1>
+        <p class="name-highlight" id="sister-name">Sister</p>
+        <div class="divider"><span>♥</span></div>
+        <p class="card-message" id="card-message"></p>
+        <p class="card-signature">With love ♡</p>
+        <p class="secret-hint">VIRANSH GAUTAM👀</p>
+      </div>
+
+      <div class="photo-frame reveal reveal-2">
+        <p class="photo-tap-hint">tap photo to enlarge ✨</p>
+        <div class="frame-border" id="photo-trigger">
+          <img src="img.jpg" alt="Birthday girl" id="sister-photo"
+               onerror="this.style.display='none'; document.getElementById('photo-placeholder').style.display='flex';">
+          <div class="photo-placeholder" id="photo-placeholder">
+            <span>📷</span>
+            <p>Add photo:<br><code>img2.jpg</code></p>
+          </div>
+        </div>
+      </div>
+
+      <div class="wish-jar reveal reveal-3" id="wish-jar">
+        <button class="wish-btn" id="wish-btn" type="button">✨ Make a wish</button>
+        <p class="wish-count" id="wish-count">0 wishes sent</p>
+      </div>
+
+      <div class="sweet-note-box reveal reveal-3">
+        <button class="note-btn" id="note-btn" type="button">💌 Sweet message</button>
+        <p class="sweet-note" id="sweet-note">Tap for a special line</p>
+      </div>
+    </div>
+
+    <button class="love-counter" id="love-counter" type="button" aria-label="Send love">
+      <span class="love-icon">♥</span>
+      <span id="love-score">0</span>
+    </button>
+
+    <div class="photo-lightbox" id="photo-lightbox" hidden>
+      <div class="lightbox-backdrop" id="lightbox-close"></div>
+      <img src="img.jpg" alt="Birthday girl enlarged" id="lightbox-img">
+      <button class="lightbox-close-btn" id="lightbox-close-btn" type="button">✕</button>
+    </div>
+
+    <div class="secret-modal" id="secret-modal" hidden>
+      <div class="secret-modal-inner">
+        <p class="secret-emoji">💝</p>
+        <p class="secret-title">A secret note for you</p>
+        <p class="secret-text" id="secret-text"></p>
+        <button class="secret-close" id="secret-close" type="button">♡ close</button>
+      </div>
+    </div>
+
+    <button class="music-btn" id="music-btn" aria-label="Toggle music">
+      <span class="music-bars" id="music-bars"><span></span><span></span><span></span></span>
+      <span class="music-label" id="music-label">Music</span>
+    </button>
+    <button class="bg-switch-btn" id="bg-switch-btn" type="button" aria-label="Switch background photo">🖼️ Switch Photo</button>
+
+    <audio id="bg-music" loop preload="auto">
+      <source src="assets/birthday-song.mp3" type="audio/mpeg">
+      <source src="assets/birthday-song.ogg" type="audio/ogg">
+    </audio>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
